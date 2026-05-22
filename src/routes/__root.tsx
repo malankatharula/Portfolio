@@ -68,8 +68,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Malanka Tharula — Portfolio" },
       { name: "twitter:description", content: "Portfolio of Malanka Tharula — Backend Developer & Deep Learning Enthusiast. Selected projects, experience, and contact." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dbcd08de-151e-4217-80bc-bcba1234e840/id-preview-49fbb671--6c8baebd-5273-46fe-8da9-e0fbd3d40a4e.lovable.app-1779361262343.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dbcd08de-151e-4217-80bc-bcba1234e840/id-preview-49fbb671--6c8baebd-5273-46fe-8da9-e0fbd3d40a4e.lovable.app-1779361262343.png" },
+
     ],
     links: [
       {
