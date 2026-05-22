@@ -5,7 +5,7 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/Portfolio">
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
