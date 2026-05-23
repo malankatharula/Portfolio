@@ -11,6 +11,7 @@ import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { Nav } from "@/components/portfolio/Nav";
 import { Footer } from "@/components/portfolio/Footer";
 import { useRevealOnScroll } from "@/hooks/use-reveal-on-scroll";
+import { Game } from "@/components/portfolio/Game";
 
 export default function Home() {
   useRevealOnScroll();
@@ -48,6 +49,7 @@ export default function Home() {
         <Experience />
         <Achievements />
         <Education />
+        <Game />
         <Contact />
       </main>
       <Footer />

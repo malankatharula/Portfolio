@@ -9,6 +9,7 @@ const LINKS = [
   { id: "experience", label: "04 / XP" },
   { id: "achievements", label: "05 / Wins" },
   { id: "education", label: "06 / EDU" },
+  { id: "arcade", label: "07 / Arcade" },
   { id: "contact", label: "07 / Contact" },
 ];
 

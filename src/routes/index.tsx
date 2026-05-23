@@ -12,6 +12,7 @@ import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { useRevealOnScroll } from "@/hooks/use-reveal-on-scroll";
+import { Game } from "@/components/portfolio/Game";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,6 +66,7 @@ function Index() {
         <Experience />
         <Achievements />
         <Education />
+        <Game />
         <Contact />
       </main>
       <Footer />
