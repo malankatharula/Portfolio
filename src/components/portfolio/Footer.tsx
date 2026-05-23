@@ -29,7 +29,7 @@ export function Footer() {
             <span className="font-display text-lg font-bold tracking-[0.2em]">Malanka Tharula</span>
           </div>
           <p className="mt-2 font-mono text-xs" style={{ color: "var(--text-muted)" }}>
-            Backend developer & deep learning enthusiast — built with caffeine & cathode rays.
+            AI/DL/CV Developer | Researcher | Volunteer | Co-Founder @ ACS-USJ — built with caffeine & cathode rays.
           </p>
         </div>
 

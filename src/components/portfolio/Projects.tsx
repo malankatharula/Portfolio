@@ -25,7 +25,7 @@ num: "01",
   {
     num: "02",
     title: "CodeRAG",
-    desc: "Local RAG system for codebase Q&A — fully private, no cloud. Clone any GitHub repo, chunk it with code-aware splitting, embed with nomic-embed-text, store in ChromaDB, and query with Llama 3.2 3B running on Ollama.",
+    desc: "Online RAG system for codebase Q&A — fully private, no cloud. Clone any GitHub repo, chunk it with code-aware splitting, embed with nomic-embed-text, store in ChromaDB, and query with Llama 3.2 3B running on Ollama.",
     stack: ["FastAPI", "LangChain", "ChromaDB", "Ollama", "Python", "HTML/CSS/JS"],
     github: "https://github.com/malankatharula/CodeRAG",
     live: "https://huggingface.co/spaces/malankabuilder/CodeRAG",

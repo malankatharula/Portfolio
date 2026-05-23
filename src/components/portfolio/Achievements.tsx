@@ -2,7 +2,7 @@ import { SectionHeading } from "./SectionHeading";
 
 const FEATURED = [
   { tag: "RANK #1 @ USJ", title: "IEEEXtreme 18.0", desc: "Global Rank #605 · Country Rank #41 · University Rank #1 (CodeDuoPlus One)" },
-  { tag: "PUBLISHED", title: "Dual-Phase Financial Strategy Paper", desc: "JEMS Journal · 2024 · Customer Loyalty in Retail" },
+  { tag: "PUBLISHED", title: "Dual-Phase Financial Strategy Paper", desc: "JEMS Journal · 2024 · Customer Loyalty in Retail", link: "https://jems.sciview.net/index.php/jems/article/view/229" },
   { tag: "CO-FOUNDER", title: "Association of Computing Students (ACS)", desc: "USJ · 2024 · Editorial Lead & Community Builder" },
 ];
 
@@ -36,6 +36,17 @@ export function Achievements() {
             <p className="mt-2 font-mono text-sm" style={{ color: "var(--text-dim)" }}>
               {a.desc}
             </p>
+            {"link" in a && a.link && (
+              <a
+                href={a.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest transition-colors"
+                style={{ color: "var(--neon-cyan)" }}
+              >
+                View Paper <span style={{ fontSize: 14 }}>→</span>
+              </a>
+            )}
             <div
               className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-30 blur-3xl"
               style={{ background: "var(--neon-magenta)" }}
