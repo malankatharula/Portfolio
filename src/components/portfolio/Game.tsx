@@ -192,42 +192,47 @@ export function Game() {
   const H = ROWS * TILE;
 
   return (
-    <section id="arcade" className="relative px-6 py-24 md:px-12">
+    <section id="arcade" className="relative px-4 py-24 sm:px-6 md:px-12">
       <div className="mx-auto max-w-6xl">
         <SectionHeading index="// 07" title="ARCADE.exe" kicker="Easter egg / offline mode" />
 
         <div className="reveal flex flex-col items-center">
           <div
-            className="neon-border relative"
-            style={{ padding: 2, borderRadius: 8 }}
+            className="neon-border relative w-full"
+            style={{ padding: 2, borderRadius: 8, maxWidth: W + 4 }}
           >
             <div
-              className="relative overflow-hidden"
+              className="relative w-full overflow-hidden"
               style={{
                 background: "#07070d",
                 borderRadius: 6,
-                width: W,
-                maxWidth: "100%",
               }}
             >
               {/* Console header */}
               <div
-                className="flex items-center justify-between border-b px-3 py-2 font-mono text-[11px] uppercase tracking-widest"
-                style={{ borderColor: "rgba(0, 229, 255, 0.15)", color: "var(--text-dim)" }}
+                className="flex items-center justify-between border-b px-2 py-1.5 font-mono uppercase tracking-widest sm:px-3 sm:py-2"
+                style={{
+                  borderColor: "rgba(0, 229, 255, 0.15)",
+                  color: "var(--text-dim)",
+                  fontSize: "clamp(8px, 2.5vw, 11px)",
+                }}
               >
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 rounded-full" style={{ background: "#ff2bd6", boxShadow: "0 0 8px #ff2bd6" }} />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full sm:h-2 sm:w-2" style={{ background: "#ff2bd6", boxShadow: "0 0 8px #ff2bd6" }} />
                   <span>cyber_snake.sh</span>
                 </div>
                 <div style={{ color: "var(--neon-cyan)" }}>
                   SCORE <span style={{ color: "var(--neon-green)" }}>{String(score).padStart(3, "0")}</span>
-                  <span className="mx-2 opacity-40">|</span>
+                  <span className="mx-1 opacity-40 sm:mx-2">|</span>
                   BEST <span style={{ color: "var(--neon-magenta)" }}>{String(best).padStart(3, "0")}</span>
                 </div>
               </div>
 
-              {/* Canvas */}
-              <div className="relative" style={{ width: W, height: H, maxWidth: "100%" }}>
+              {/* Canvas — scales proportionally via aspect-ratio */}
+              <div
+                className="relative w-full"
+                style={{ aspectRatio: `${W} / ${H}` }}
+              >
                 <canvas
                   ref={canvasRef}
                   width={W}
@@ -238,22 +243,36 @@ export function Game() {
                 {/* Overlay: start / gameover */}
                 {(!running || gameOver) && (
                   <div
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center"
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center sm:gap-4"
                     style={{ background: "rgba(7, 7, 13, 0.78)", backdropFilter: "blur(2px)" }}
                   >
                     <div
-                      className="font-display text-3xl font-black tracking-widest"
-                      style={{ color: gameOver ? "var(--neon-magenta)" : "var(--neon-cyan)", textShadow: "0 0 18px currentColor" }}
+                      className="font-display font-black tracking-widest"
+                      style={{
+                        fontSize: "clamp(1.1rem, 5vw, 1.875rem)",
+                        color: gameOver ? "var(--neon-magenta)" : "var(--neon-cyan)",
+                        textShadow: "0 0 18px currentColor",
+                      }}
                     >
                       {gameOver ? "GAME OVER" : "READY PLAYER ONE"}
                     </div>
-                    <div className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: "var(--text-dim)" }}>
+                    <div
+                      className="font-mono uppercase"
+                      style={{
+                        color: "var(--text-dim)",
+                        fontSize: "clamp(8px, 2.5vw, 12px)",
+                        letterSpacing: "0.15em",
+                      }}
+                    >
                       Use <span style={{ color: "var(--neon-cyan)" }}>↑ ↓ ← →</span> to move · eat the magenta cube
                     </div>
                     <button
                       onClick={reset}
-                      className="font-mono text-xs uppercase tracking-[0.3em] px-5 py-2 transition"
+                      className="font-mono uppercase transition"
                       style={{
+                        fontSize: "clamp(9px, 2.5vw, 12px)",
+                        letterSpacing: "0.15em",
+                        padding: "0.4rem 1rem",
                         border: "1px solid var(--neon-cyan)",
                         color: "var(--neon-cyan)",
                         background: "rgba(0, 229, 255, 0.08)",
@@ -268,15 +287,27 @@ export function Game() {
 
               {/* Console footer */}
               <div
-                className="border-t px-3 py-2 font-mono text-[10px] uppercase tracking-[0.3em]"
-                style={{ borderColor: "rgba(0, 229, 255, 0.15)", color: "var(--text-dim)" }}
+                className="border-t px-2 py-1.5 font-mono uppercase sm:px-3 sm:py-2"
+                style={{
+                  borderColor: "rgba(0, 229, 255, 0.15)",
+                  color: "var(--text-dim)",
+                  fontSize: "clamp(7px, 2.2vw, 10px)",
+                  letterSpacing: "0.15em",
+                }}
               >
                 <span style={{ color: "var(--neon-green)" }}>$</span> ./run --mode=offline --vibe=cyberpunk
               </div>
             </div>
           </div>
 
-          <p className="reveal mt-6 max-w-md text-center font-mono text-xs uppercase tracking-[0.25em]" style={{ color: "var(--text-dim)" }}>
+          <p
+            className="reveal mt-6 max-w-md text-center font-mono uppercase"
+            style={{
+              color: "var(--text-dim)",
+              fontSize: "clamp(9px, 2.5vw, 12px)",
+              letterSpacing: "0.15em",
+            }}
+          >
             no wifi? no problem. // arrow keys to play
           </p>
         </div>
