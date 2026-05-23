@@ -352,26 +352,31 @@ type DpadProps = {
 };
 
 function MobileDpad({ onDirection, onStart, canStart }: DpadProps) {
-  const btnBase: React.CSSProperties = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: 56,
-    height: 56,
-    border: "1px solid rgba(0, 229, 255, 0.35)",
-    background: "rgba(0, 229, 255, 0.06)",
-    color: "var(--neon-cyan)",
-    borderRadius: 6,
-    fontSize: 22,
-    transition: "all 0.12s ease",
-    WebkitTapHighlightColor: "transparent",
-    touchAction: "manipulation",
-    userSelect: "none",
-  };
+  const SIZE = 180;
+  const CENTER = SIZE / 2;
+  const ARROW_OFFSET = 38; // distance from center to each arrow
 
   const handleTouch = (dir: "up" | "down" | "left" | "right") => (e: React.TouchEvent | React.MouseEvent) => {
     e.preventDefault();
     onDirection(dir);
+  };
+
+  const arrowBtnStyle: React.CSSProperties = {
+    position: "absolute",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 48,
+    height: 48,
+    background: "transparent",
+    border: "none",
+    color: "var(--neon-cyan)",
+    borderRadius: "50%",
+    WebkitTapHighlightColor: "transparent",
+    touchAction: "manipulation",
+    userSelect: "none",
+    cursor: "pointer",
+    transition: "all 0.12s ease",
   };
 
   return (
@@ -388,101 +393,162 @@ function MobileDpad({ onDirection, onStart, canStart }: DpadProps) {
         <span style={{ color: "var(--neon-cyan)" }}>▸</span> touch_controls.sh
       </div>
 
-      {/* D-pad grid */}
+      {/* Circular D-pad */}
       <div
         className="relative"
         style={{
-          display: "grid",
-          gridTemplateColumns: "56px 56px 56px",
-          gridTemplateRows: "56px 56px 56px",
-          gap: 4,
+          width: SIZE,
+          height: SIZE,
         }}
       >
-        {/* Row 1: empty, UP, empty */}
-        <div />
+        {/* Outer circle — dark bg with neon border */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, #0d0d18 0%, #08080f 100%)",
+            border: "1.5px solid rgba(0, 229, 255, 0.2)",
+            boxShadow:
+              "0 0 24px rgba(0, 229, 255, 0.08), inset 0 0 30px rgba(0, 0, 0, 0.5)",
+          }}
+        />
+
+        {/* Subtle cross-hair lines */}
+        <div
+          style={{
+            position: "absolute",
+            top: CENTER - 0.5,
+            left: 24,
+            right: 24,
+            height: 1,
+            background: "rgba(0, 229, 255, 0.06)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: CENTER - 0.5,
+            top: 24,
+            bottom: 24,
+            width: 1,
+            background: "rgba(0, 229, 255, 0.06)",
+          }}
+        />
+
+        {/* UP */}
         <button
           onTouchStart={handleTouch("up")}
           onMouseDown={handleTouch("up")}
-          className="dpad-btn"
-          style={btnBase}
+          className="dpad-arrow"
+          style={{
+            ...arrowBtnStyle,
+            top: 6,
+            left: CENTER - 24,
+          }}
           aria-label="Up"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="18 15 12 9 6 15" />
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="17 14 12 9 7 14" />
           </svg>
         </button>
-        <div />
 
-        {/* Row 2: LEFT, CENTER, RIGHT */}
+        {/* DOWN */}
+        <button
+          onTouchStart={handleTouch("down")}
+          onMouseDown={handleTouch("down")}
+          className="dpad-arrow"
+          style={{
+            ...arrowBtnStyle,
+            bottom: 6,
+            left: CENTER - 24,
+          }}
+          aria-label="Down"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="7 10 12 15 17 10" />
+          </svg>
+        </button>
+
+        {/* LEFT */}
         <button
           onTouchStart={handleTouch("left")}
           onMouseDown={handleTouch("left")}
-          className="dpad-btn"
-          style={btnBase}
+          className="dpad-arrow"
+          style={{
+            ...arrowBtnStyle,
+            top: CENTER - 24,
+            left: 6,
+          }}
           aria-label="Left"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="14 17 9 12 14 7" />
           </svg>
         </button>
 
-        {/* Center button — play / retry */}
+        {/* RIGHT */}
+        <button
+          onTouchStart={handleTouch("right")}
+          onMouseDown={handleTouch("right")}
+          className="dpad-arrow"
+          style={{
+            ...arrowBtnStyle,
+            top: CENTER - 24,
+            right: 6,
+          }}
+          aria-label="Right"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="10 17 15 12 10 7" />
+          </svg>
+        </button>
+
+        {/* Center circle button */}
         <button
           onTouchStart={(e) => { e.preventDefault(); if (canStart) onStart(); }}
           onMouseDown={(e) => { e.preventDefault(); if (canStart) onStart(); }}
           style={{
-            ...btnBase,
-            border: canStart ? "1px solid var(--neon-magenta)" : "1px solid rgba(0, 229, 255, 0.15)",
-            background: canStart ? "rgba(255, 43, 214, 0.1)" : "rgba(0, 229, 255, 0.03)",
-            color: canStart ? "var(--neon-magenta)" : "var(--text-muted)",
-            boxShadow: canStart ? "0 0 12px rgba(255, 43, 214, 0.25)" : "none",
-            fontSize: 10,
-            fontFamily: "var(--font-mono)",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
+            position: "absolute",
+            top: CENTER - ARROW_OFFSET / 2 - 4,
+            left: CENTER - ARROW_OFFSET / 2 - 4,
+            width: ARROW_OFFSET + 8,
+            height: ARROW_OFFSET + 8,
+            borderRadius: "50%",
+            border: canStart
+              ? "1.5px solid var(--neon-magenta)"
+              : "1.5px solid rgba(0, 229, 255, 0.25)",
+            background: canStart
+              ? "radial-gradient(circle, rgba(255,43,214,0.2) 0%, rgba(255,43,214,0.05) 100%)"
+              : "radial-gradient(circle, rgba(0,229,255,0.12) 0%, rgba(0,229,255,0.03) 100%)",
+            color: canStart ? "var(--neon-magenta)" : "var(--neon-cyan)",
+            boxShadow: canStart
+              ? "0 0 18px rgba(255,43,214,0.35), inset 0 0 10px rgba(255,43,214,0.1)"
+              : "0 0 12px rgba(0,229,255,0.15), inset 0 0 8px rgba(0,229,255,0.05)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 14,
+            transition: "all 0.2s ease",
+            WebkitTapHighlightColor: "transparent",
+            touchAction: "manipulation",
+            cursor: "pointer",
           }}
           aria-label={canStart ? "Start game" : "Playing"}
         >
           {canStart ? "▶" : "●"}
         </button>
-
-        <button
-          onTouchStart={handleTouch("right")}
-          onMouseDown={handleTouch("right")}
-          className="dpad-btn"
-          style={btnBase}
-          aria-label="Right"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-
-        {/* Row 3: empty, DOWN, empty */}
-        <div />
-        <button
-          onTouchStart={handleTouch("down")}
-          onMouseDown={handleTouch("down")}
-          className="dpad-btn"
-          style={btnBase}
-          aria-label="Down"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </button>
-        <div />
       </div>
 
       {/* Active-state glow styles */}
       <style>{`
-        .dpad-btn:active {
-          background: rgba(0, 229, 255, 0.2) !important;
-          border-color: var(--neon-cyan) !important;
-          box-shadow: 0 0 16px rgba(0, 229, 255, 0.45), inset 0 0 8px rgba(0, 229, 255, 0.15) !important;
-          transform: scale(0.93);
+        .dpad-arrow:active {
+          color: #fff !important;
+          filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.7));
+          transform: scale(0.88);
         }
       `}</style>
     </div>
   );
-}
+}
+
