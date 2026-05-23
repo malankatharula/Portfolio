@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 
 type Cell = { x: number; y: number };
@@ -50,34 +50,46 @@ export function Game() {
     setRunning(true);
   };
 
+  // Shared direction handler — used by both keyboard and touch D-pad
+  const handleDirection = useCallback(
+    (direction: "up" | "down" | "left" | "right") => {
+      const s = stateRef.current;
+      const map: Record<string, Cell> = {
+        up: { x: 0, y: -1 },
+        down: { x: 0, y: 1 },
+        left: { x: -1, y: 0 },
+        right: { x: 1, y: 0 },
+      };
+      const nd = map[direction];
+      if (!nd) return;
+      if (nd.x === -s.dir.x && nd.y === -s.dir.y) return;
+      s.nextDir = nd;
+    },
+    [],
+  );
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const k = e.key;
       const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "];
       if (!arrowKeys.includes(k)) return;
-      // Only intercept arrows when game is running/visible-focused
       if (k === " ") {
         e.preventDefault();
         if (!running || gameOver) reset();
         return;
       }
-      const s = stateRef.current;
-      const map: Record<string, Cell> = {
-        ArrowUp: { x: 0, y: -1 },
-        ArrowDown: { x: 0, y: 1 },
-        ArrowLeft: { x: -1, y: 0 },
-        ArrowRight: { x: 1, y: 0 },
-      };
-      const nd = map[k];
-      if (!nd) return;
-      // prevent reversing onto self
-      if (nd.x === -s.dir.x && nd.y === -s.dir.y) return;
       e.preventDefault();
-      s.nextDir = nd;
+      const keyMap: Record<string, "up" | "down" | "left" | "right"> = {
+        ArrowUp: "up",
+        ArrowDown: "down",
+        ArrowLeft: "left",
+        ArrowRight: "right",
+      };
+      handleDirection(keyMap[k]);
     };
     window.addEventListener("keydown", onKey, { passive: false });
     return () => window.removeEventListener("keydown", onKey);
-  }, [running, gameOver]);
+  }, [running, gameOver, handleDirection]);
 
   useEffect(() => {
     if (!running) return;
@@ -300,6 +312,18 @@ export function Game() {
             </div>
           </div>
 
+          {/* Mobile D-pad — only visible on small screens */}
+          <div
+            className="mt-6 sm:hidden"
+            style={{ touchAction: "manipulation" }}
+          >
+            <MobileDpad
+              onDirection={handleDirection}
+              onStart={reset}
+              canStart={!running || gameOver}
+            />
+          </div>
+
           <p
             className="reveal mt-6 max-w-md text-center font-mono uppercase"
             style={{
@@ -308,10 +332,157 @@ export function Game() {
               letterSpacing: "0.15em",
             }}
           >
-            no wifi? no problem. // arrow keys to play
+            <span className="hidden sm:inline">no wifi? no problem. // arrow keys to play</span>
+            <span className="sm:hidden">no wifi? no problem. // tap arrows to play</span>
           </p>
         </div>
       </div>
     </section>
   );
 }
+
+/* ─────────────────────────────────────────────
+   Mobile D-pad — cyberpunk themed touch controls
+   ───────────────────────────────────────────── */
+
+type DpadProps = {
+  onDirection: (dir: "up" | "down" | "left" | "right") => void;
+  onStart: () => void;
+  canStart: boolean;
+};
+
+function MobileDpad({ onDirection, onStart, canStart }: DpadProps) {
+  const btnBase: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 56,
+    height: 56,
+    border: "1px solid rgba(0, 229, 255, 0.35)",
+    background: "rgba(0, 229, 255, 0.06)",
+    color: "var(--neon-cyan)",
+    borderRadius: 6,
+    fontSize: 22,
+    transition: "all 0.12s ease",
+    WebkitTapHighlightColor: "transparent",
+    touchAction: "manipulation",
+    userSelect: "none",
+  };
+
+  const handleTouch = (dir: "up" | "down" | "left" | "right") => (e: React.TouchEvent | React.MouseEvent) => {
+    e.preventDefault();
+    onDirection(dir);
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-3">
+      {/* Label */}
+      <div
+        className="font-mono uppercase"
+        style={{
+          fontSize: "clamp(8px, 2.5vw, 10px)",
+          letterSpacing: "0.2em",
+          color: "var(--text-muted)",
+        }}
+      >
+        <span style={{ color: "var(--neon-cyan)" }}>▸</span> touch_controls.sh
+      </div>
+
+      {/* D-pad grid */}
+      <div
+        className="relative"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "56px 56px 56px",
+          gridTemplateRows: "56px 56px 56px",
+          gap: 4,
+        }}
+      >
+        {/* Row 1: empty, UP, empty */}
+        <div />
+        <button
+          onTouchStart={handleTouch("up")}
+          onMouseDown={handleTouch("up")}
+          className="dpad-btn"
+          style={btnBase}
+          aria-label="Up"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
+        </button>
+        <div />
+
+        {/* Row 2: LEFT, CENTER, RIGHT */}
+        <button
+          onTouchStart={handleTouch("left")}
+          onMouseDown={handleTouch("left")}
+          className="dpad-btn"
+          style={btnBase}
+          aria-label="Left"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        {/* Center button — play / retry */}
+        <button
+          onTouchStart={(e) => { e.preventDefault(); if (canStart) onStart(); }}
+          onMouseDown={(e) => { e.preventDefault(); if (canStart) onStart(); }}
+          style={{
+            ...btnBase,
+            border: canStart ? "1px solid var(--neon-magenta)" : "1px solid rgba(0, 229, 255, 0.15)",
+            background: canStart ? "rgba(255, 43, 214, 0.1)" : "rgba(0, 229, 255, 0.03)",
+            color: canStart ? "var(--neon-magenta)" : "var(--text-muted)",
+            boxShadow: canStart ? "0 0 12px rgba(255, 43, 214, 0.25)" : "none",
+            fontSize: 10,
+            fontFamily: "var(--font-mono)",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+          }}
+          aria-label={canStart ? "Start game" : "Playing"}
+        >
+          {canStart ? "▶" : "●"}
+        </button>
+
+        <button
+          onTouchStart={handleTouch("right")}
+          onMouseDown={handleTouch("right")}
+          className="dpad-btn"
+          style={btnBase}
+          aria-label="Right"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+
+        {/* Row 3: empty, DOWN, empty */}
+        <div />
+        <button
+          onTouchStart={handleTouch("down")}
+          onMouseDown={handleTouch("down")}
+          className="dpad-btn"
+          style={btnBase}
+          aria-label="Down"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div />
+      </div>
+
+      {/* Active-state glow styles */}
+      <style>{`
+        .dpad-btn:active {
+          background: rgba(0, 229, 255, 0.2) !important;
+          border-color: var(--neon-cyan) !important;
+          box-shadow: 0 0 16px rgba(0, 229, 255, 0.45), inset 0 0 8px rgba(0, 229, 255, 0.15) !important;
+          transform: scale(0.93);
+        }
+      `}</style>
+    </div>
+  );
+}
