@@ -15,7 +15,7 @@ const SOCIALS = [
 export function Contact() {
   return (
     <section id="contact" className="relative mx-auto max-w-7xl px-6 py-32">
-      <SectionHeading index="// 07" kicker="open_channel" title="Establish Link" />
+      <SectionHeading index="// 08" kicker="open_channel" title="Establish Link" />
 
       <div className="grid gap-10 md:grid-cols-2">
         <div className="reveal space-y-6">

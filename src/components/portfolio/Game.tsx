@@ -194,7 +194,7 @@ export function Game() {
   return (
     <section id="arcade" className="relative px-6 py-24 md:px-12">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="// 09" title="ARCADE.exe" kicker="Easter egg / offline mode" />
+        <SectionHeading index="// 07" title="ARCADE.exe" kicker="Easter egg / offline mode" />
 
         <div className="reveal flex flex-col items-center">
           <div
