@@ -10,7 +10,7 @@ const LINKS = [
 export function Footer() {
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/cv/Malanka_Tharula_CV.pdf";
+    link.href = `${import.meta.env.BASE_URL}cv/Malanka_Tharula_CV.pdf`;
     link.download = "Malanka_Tharula_CV.pdf";
     document.body.appendChild(link);
     link.click();

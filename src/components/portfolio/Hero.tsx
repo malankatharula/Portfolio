@@ -31,8 +31,8 @@ export function Hero() {
         </div>
 
         <p className="mt-6 max-w-2xl font-mono text-sm leading-relaxed md:text-base" style={{ color: "var(--text-dim)" }}>
-          Computer Science undergrad at USJ building backend systems, deep learning models,
-          and real-time applications — from ASL recognition to custom operating systems.
+          Computer Science undergrad at FoC, USJ building AI agentic systems, deep learning models,
+          and Automated workflows along with full-stack development.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
