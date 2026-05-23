@@ -10,7 +10,7 @@ const LINKS = [
   { id: "achievements", label: "05 / Wins" },
   { id: "education", label: "06 / EDU" },
   { id: "arcade", label: "07 / Arcade" },
-  { id: "contact", label: "07 / Contact" },
+  { id: "contact", label: "08 / Contact" },
 ];
 
 export function Nav() {
