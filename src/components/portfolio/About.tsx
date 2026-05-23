@@ -25,7 +25,7 @@ export function About() {
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Backend Dev", "Deep Learning", "Systems Programming", "Competitive Programming"].map((t) => (
+            {["Backend Dev", "ML / DL /CV", "Workflow Automating", "Competitive Programming"].map((t) => (
               <span key={t} className="chip">{t}</span>
             ))}
           </div>
