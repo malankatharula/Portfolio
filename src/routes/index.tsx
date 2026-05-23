@@ -13,6 +13,7 @@ import { Footer } from "@/components/portfolio/Footer";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { useRevealOnScroll } from "@/hooks/use-reveal-on-scroll";
 import { Game } from "@/components/portfolio/Game";
+import { ArcadeFab } from "@/components/portfolio/ArcadeFab";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,6 +71,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <ArcadeFab />
     </div>
   );
 }

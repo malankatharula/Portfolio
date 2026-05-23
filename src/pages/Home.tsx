@@ -12,6 +12,7 @@ import { Nav } from "@/components/portfolio/Nav";
 import { Footer } from "@/components/portfolio/Footer";
 import { useRevealOnScroll } from "@/hooks/use-reveal-on-scroll";
 import { Game } from "@/components/portfolio/Game";
+import { ArcadeFab } from "@/components/portfolio/ArcadeFab";
 
 export default function Home() {
   useRevealOnScroll();
@@ -53,6 +54,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <ArcadeFab />
     </div>
   );
 }
