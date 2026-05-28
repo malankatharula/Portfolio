@@ -4,19 +4,19 @@ const ITEMS = [
   {
     role: "Chief Editor",
     org: "Association of Computing Students (ACS)",
-    dates: "Apr 2024 — Jun 2025",
+    dates: "Apr 2024 - Jun 2025",
     bullets: [
-      "Co-founded ACS and shaped editorial direction — built brand identity, publications, and community content from scratch.",
+      "Co-founded ACS and shaped editorial direction - built brand identity, publications, and community content from scratch.",
       "Led CodeFuse hackathon, TechXplore industry bridge program, and EDUACS seminar series inspiring 100+ school students.",
-      "Produced ACS eMagazine and 'Did You Know' collaborative learning platform — scaled engagement across FOC.",
+      "Produced ACS eMagazine and 'Did You Know' collaborative learning platform - scaled engagement across FOC.",
     ],
   },
   {
     role: "Member",
     org: "IEEE Student Branch",
-    dates: "Oct 2023 — Present",
+    dates: "Oct 2023 - Present",
     bullets: [
-      "Competed in IEEEXtreme 18.0 — global 24-hour coding competition ranking #605 globally, #41 nationally, #1 at USJ.",
+      "Competed in IEEEXtreme 18.0 - global 24-hour coding competition ranking #605 globally, #41 nationally, #1 at USJ.",
       "Invited to IFS Champions Day 2025 as sole representative from USJ for top coders.",
     ],
   },

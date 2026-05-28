@@ -50,7 +50,7 @@ export function Game() {
     setRunning(true);
   };
 
-  // Shared direction handler — used by both keyboard and touch D-pad
+  // Shared direction handler - used by both keyboard and touch D-pad
   const handleDirection = useCallback(
     (direction: "up" | "down" | "left" | "right") => {
       const s = stateRef.current;
@@ -240,7 +240,7 @@ export function Game() {
                 </div>
               </div>
 
-              {/* Canvas — scales proportionally via aspect-ratio */}
+              {/* Canvas - scales proportionally via aspect-ratio */}
               <div
                 className="relative w-full"
                 style={{ aspectRatio: `${W} / ${H}` }}
@@ -312,7 +312,7 @@ export function Game() {
             </div>
           </div>
 
-          {/* Mobile D-pad — only visible on small screens */}
+          {/* Mobile D-pad - only visible on small screens */}
           <div
             className="mt-6 sm:hidden"
             style={{ touchAction: "manipulation" }}
@@ -342,7 +342,7 @@ export function Game() {
 }
 
 /* ─────────────────────────────────────────────
-   Mobile D-pad — cyberpunk themed touch controls
+   Mobile D-pad - cyberpunk themed touch controls
    ───────────────────────────────────────────── */
 
 type DpadProps = {
@@ -401,7 +401,7 @@ function MobileDpad({ onDirection, onStart, canStart }: DpadProps) {
           height: SIZE,
         }}
       >
-        {/* Outer circle — dark bg with neon border */}
+        {/* Outer circle - dark bg with neon border */}
         <div
           style={{
             position: "absolute",
@@ -551,4 +551,4 @@ function MobileDpad({ onDirection, onStart, canStart }: DpadProps) {
     </div>
   );
 }
-
+

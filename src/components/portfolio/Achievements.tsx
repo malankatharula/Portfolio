@@ -7,12 +7,12 @@ const FEATURED = [
 ];
 
 const CERTS = [
-  "Introduction to Software Engineering — Udemy · Feb 2024",
-  "Java Programming Masterclass — Udemy · Feb 2024",
-  "Java Fundamentals Course For Beginners — Udemy · Feb 2024",
-  "Introduction to Database Management Systems — Udemy · Feb 2024",
-  "Master Course of Rapid Application Development — Udemy · Feb 2024",
-  "Introduction to Programming Using Java — Sololearn · Jan 2024",
+  "Introduction to Software Engineering - Udemy · Feb 2024",
+  "Java Programming Masterclass - Udemy · Feb 2024",
+  "Java Fundamentals Course For Beginners - Udemy · Feb 2024",
+  "Introduction to Database Management Systems - Udemy · Feb 2024",
+  "Master Course of Rapid Application Development - Udemy · Feb 2024",
+  "Introduction to Programming Using Java - Sololearn · Jan 2024",
 ];
 
 export function Achievements() {
