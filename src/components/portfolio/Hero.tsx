@@ -15,7 +15,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.3em]" style={{ color: "var(--text-dim)" }}>
           <span className="dot-pulse" />
-          <span>System online · v.2.0.26</span>
+          <span>System online ·</span>
         </div>
 
         <h1 className="font-display mt-6 text-[clamp(2.8rem,9vw,8rem)] font-black leading-[0.9]">
