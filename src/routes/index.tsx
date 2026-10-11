@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Malanka Tharula, Backend Developer & Deep Learning Enthusiast. CS undergrad at USJ with projects in systems programming, ASL recognition, and competitive programming.",
+          "Portfolio of Malanka Tharula - CS undergrad at USJ building AI agents, RAG systems, and full-stack web and mobile apps, with UI/UX design in Figma.",
       },
       { property: "og:title", content: "Malanka Tharula " },
       { property: "og:description", content: "Selected projects, experience, achievements, and contact." },

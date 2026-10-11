@@ -19,7 +19,7 @@ export function SystemCard() {
         <span style={{ color: "var(--text-muted)" }}>name</span>
         <span style={{ color: "var(--neon-cyan)" }}>"Malanka Tharula"</span>
         <span style={{ color: "var(--text-muted)" }}>class</span>
-        <span style={{ color: "var(--neon-cyan)" }}>"Backend Developer"</span>
+        <span style={{ color: "var(--neon-cyan)" }}>"AI & Full-Stack Developer"</span>
         <span style={{ color: "var(--text-muted)" }}>guild</span>
         <span style={{ color: "var(--neon-cyan)" }}>"University of Sri Jayewardenepura"</span>
         <span style={{ color: "var(--text-muted)" }}>loc</span>

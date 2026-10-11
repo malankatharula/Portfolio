@@ -59,15 +59,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Malanka Tharula - Portfolio" },
-      { name: "description", content: "Portfolio of Malanka Tharula - Backend Developer & Deep Learning Enthusiast. Selected projects, experience, and contact." },
+      { name: "description", content: "Portfolio of Malanka Tharula - AI & Full-Stack Developer, UI/UX Designer. Selected projects, experience, and contact." },
       { name: "author", content: "Malanka Tharula" },
       { property: "og:title", content: "Malanka Tharula - Portfolio" },
-      { property: "og:description", content: "Portfolio of Malanka Tharula - Backend Developer & Deep Learning Enthusiast. Selected projects, experience, and contact." },
+      { property: "og:description", content: "Portfolio of Malanka Tharula - AI & Full-Stack Developer, UI/UX Designer. Selected projects, experience, and contact." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Malanka Tharula" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Malanka Tharula - Portfolio" },
-      { name: "twitter:description", content: "Portfolio of Malanka Tharula - Backend Developer & Deep Learning Enthusiast. Selected projects, experience, and contact." },
+      { name: "twitter:description", content: "Portfolio of Malanka Tharula - AI & Full-Stack Developer, UI/UX Designer. Selected projects, experience, and contact." },
 
     ],
     links: [

@@ -1,8 +1,8 @@
 import { SectionHeading } from "./SectionHeading";
 
 const ITEMS = [
-  { degree: "Bachelor of Computing Honours in Computer Science", school: "University of Sri Jayewardenepura, Sri Lanka", dates: "2023 - 2027", notes: "GPA: ... | 4th Year Undergrad at Faculty of Computing" },
-  { degree: "Advanced Level - Physical Sciences", school: "Ananda College, Colombo, Sri Lanka", dates: "2007 - 2020", notes: "Combined Maths, Physics, Chemistry (BBB) · Ordinary Level: 8As 1C" },
+  { degree: "Bachelor of Computing Honours in Computer Science", school: "University of Sri Jayewardenepura, Sri Lanka", dates: "2023 - Present", notes: "Current GPA: 3.66 · Faculty of Computing" },
+  { degree: "Advanced Level - Physical Sciences", school: "Ananda College, Colombo, Sri Lanka", dates: "2007 - 2020", notes: "Physical Science (3 B's, Z-score 1.5554) · Ordinary Level: 8 A's, 1 C" },
 ];
 
 export function Education() {

@@ -1,9 +1,10 @@
 import { SectionHeading } from "./SectionHeading";
 
 const FEATURED = [
-  { tag: "RANK #1 @ USJ", title: "IEEEXtreme 18.0", desc: "Global Rank #605 · Country Rank #41 · University Rank #1 (CodeDuoPlus One)" },
+  { tag: "RANK #1 @ USJ", title: "IEEEXtreme 18.0", desc: "Global Rank #605 · Country Rank #41 · University Rank #1 (Team CodeDuoPlusOne)" },
   { tag: "PUBLISHED", title: "Dual-Phase Financial Strategy Paper", desc: "JEMS Journal · 2024 · Customer Loyalty in Retail", link: "https://jems.sciview.net/index.php/jems/article/view/229" },
-  { tag: "CO-FOUNDER", title: "Association of Computing Students (ACS)", desc: "USJ · 2024 · Editorial Lead & Community Builder" },
+  { tag: "CO-FOUNDER", title: "Association of Computing Students (ACS)", desc: "USJ · 2024 · First Chief Editor - led CodeFuse, TechXplore, EDUACS & the ACS eMagazine" },
+  { tag: "INVITED", title: "IFS Champions Day 2025", desc: "Only USJ representative at Orion City - an invite-only event for Sri Lanka's top IEEEXtreme coders" },
 ];
 
 const CERTS = [
@@ -20,7 +21,7 @@ export function Achievements() {
     <section id="achievements" className="relative mx-auto max-w-7xl px-6 py-32">
       <SectionHeading index="// 05" kicker="trophy_case" title="Achievements" />
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {FEATURED.map((a) => (
           <div
             key={a.title}

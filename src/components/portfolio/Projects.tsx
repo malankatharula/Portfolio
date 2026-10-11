@@ -32,6 +32,14 @@ const PROJECTS: Project[] = [
   },
   {
     num: "03",
+    title: "UI/UX Design Portfolio",
+    desc: "Design work for four apps - FixNow, Salli, Japolic, and USJ Marketplace. Each one goes from early wireframes to lo-fi and then hi-fi prototypes in Figma. The full design documents for every project are in the linked Drive folder.",
+    stack: ["Figma", "Wireframing", "Lo-Fi Prototyping", "Hi-Fi Prototyping", "User Research"],
+    live: "https://drive.google.com/drive/folders/1IizB0_Li2TtwzaQ7KRQFiNEJy668DQ5U?usp=sharing",
+    featured: true,
+  },
+  {
+    num: "04",
     title: "MultiAgentDev",
     desc: "AI-powered multi-agent system where specialized agents collaborate on developer tasks. An LangGraph orchestrator classifies each task and routes it to the right specialist - Code, Debug, Doc, or Test agent - each with a single focused job.",
     stack: ["LangGraph", "Groq API", "FastAPI", "LangChain", "Python", "HTML/CSS/JS"],
@@ -40,7 +48,7 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    num: "04",
+    num: "05",
     title: "CodeRAG",
     desc: "Online RAG system for codebase Q&A - fully private, no cloud. Clone any GitHub repo, chunk it with code-aware splitting, embed with nomic-embed-text, store in ChromaDB, and query with Llama 3.2 3B running on Ollama.",
     stack: ["FastAPI", "LangChain", "ChromaDB", "Ollama", "Python", "HTML/CSS/JS"],
@@ -49,7 +57,7 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    num: "05",
+    num: "06",
     title: "FinDataPipeline",
     desc: "Automated financial data ETL pipeline with a live dashboard. Fetches market data for AAPL, MSFT, GOOGL, JPM, TSLA via Alpha Vantage, transforms with moving averages and % change, loads into PostgreSQL, and orchestrates daily runs with Apache Airflow.",
     stack: ["Apache Airflow", "PostgreSQL", "FastAPI", "SQLAlchemy", "Chart.js", "Docker"],
@@ -57,14 +65,14 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    num: "06",
+    num: "07",
     title: "EmployeeAPI",
     desc: "Production-grade Employee Management REST API with full CRUD, JWT Bearer token auth, and role-based access control (admin vs user). Includes Alembic migrations, a self-referential manager relationship, and 10 passing Pytest tests.",
     stack: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "JWT", "Docker", "Pytest"],
     github: "https://github.com/malankatharula/EmployeeAPI",
   },
   {
-    num: "07",
+    num: "08",
     title: "PromptForge",
     desc: "AI-powered prompt optimizer that scores any prompt across 5 dimensions - clarity, specificity, context, instruction quality, and output format. Generates 3 rewrite variants (minimal, structured, expert) and runs live side-by-side comparisons to show the real difference a better prompt makes.",
     stack: ["FastAPI", "Groq API", "Llama 3.3 70B", "Docker", "HTML/CSS/JS"],
@@ -73,7 +81,7 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    num: "08",
+    num: "09",
     title: "HR Onboarding Agent",
     desc: "AI-powered HR automation - one form submission triggers a full onboarding workflow. n8n orchestrates Groq AI to generate a welcome email and task checklist, Gmail sends it, and Google Sheets logs the record automatically.",
     stack: ["n8n", "Groq API", "FastAPI", "Gmail API", "Google Sheets", "HTML/CSS/JS"],
@@ -81,7 +89,7 @@ const PROJECTS: Project[] = [
     live: "https://malankatharula.github.io/HROnboardingAgent",
   },
   {
-    num: "09",
+    num: "10",
     title: "DocuAgent",
     desc: "Full-stack AI document extraction web app. Upload any PDF, PNG, or JPG - Llama 4 Scout extracts a summary, key fields, and anomalies, then exports the results to a formatted Excel file and PDF report.",
     stack: ["FastAPI", "Groq API", "pdf2image", "ReportLab", "Docker", "HTML/CSS/JS"],
@@ -89,7 +97,7 @@ const PROJECTS: Project[] = [
     live: "https://malankatharula.github.io/DocuAgent",
   },
   {
-    num: "10",
+    num: "11",
     title: "Library Management System (LMS)",
     desc: "Fully functional 2nd-year group project with MVC architecture, Role-Based Access Control, and member/staff/admin features including approval systems with email notifications.",
     stack: ["PHP", "MySQL", "Bootstrap", "AJAX", "RBAC"],
@@ -98,17 +106,17 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    num: "11",
+    num: "12",
     title: "Custom Operating System",
     desc: "3rd-year group project: a simple OS built from scratch with custom bootloader in Assembly, C kernel, basic GUI, graphics rendering, keyboard/mouse input, and task system running on QEMU.",
     stack: ["C", "x86 Assembly", "QEMU"],
     featured: true,
   },
   {
-    num: "12",
+    num: "13",
     title: "American Sign Language Recognition",
-    desc: "Real-time deep learning model for ASL to text conversion using computer vision. Detects and translates hand gestures into text with PyTorch and MediaPipe.",
-    stack: ["PyTorch", "MediaPipe", "Python", "OpenCV"],
+    desc: "Group project: a CNN that reads American Sign Language gestures from a live camera feed and turns them into text in real time. Trained on more than 200k images.",
+    stack: ["PyTorch", "CNN", "MediaPipe", "Python", "OpenCV"],
   },
 ];
 

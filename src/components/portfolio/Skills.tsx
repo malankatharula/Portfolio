@@ -1,10 +1,10 @@
 import { SectionHeading } from "./SectionHeading";
 
 const CATEGORIES = [
-  { name: "Languages", color: "var(--neon-cyan)", items: ["Python", "Java", "C", "PHP", "JavaScript", "x86 Assembly"] },
-  { name: "Frameworks", color: "var(--neon-magenta)", items: ["React", "FastAPI", "PyTorch", "Tailwindcss", "Next"] },
-  { name: "Infrastructure", color: "var(--neon-violet)", items: ["MySQL", "QEMU", "XAMPP", "Docker"] },
-  { name: "Tools", color: "var(--neon-green)", items: ["Git", "MediaPipe", "Figma", "VS Code"] },
+  { name: "AI / ML", color: "var(--neon-cyan)", items: ["LangChain", "LangGraph", "RAG", "AI Agents", "Ollama", "Groq", "ChromaDB", "PyTorch", "CNNs"] },
+  { name: "Web & Mobile", color: "var(--neon-magenta)", items: ["TypeScript", "JavaScript", "React", "Next.js", "Vite", "Tailwind CSS", "React Native", "Expo", "Firebase"] },
+  { name: "Backend & Automation", color: "var(--neon-violet)", items: ["Python", "SQL", "FastAPI", "SQLAlchemy", "Alembic", "n8n", "Docker", "Apache Airflow"] },
+  { name: "Design & Tools", color: "var(--neon-green)", items: ["Figma", "Wireframing", "Prototyping", "Graphic Design", "Video Editing", "Git", "Postman"] },
 ];
 
 const MARQUEE = CATEGORIES.flatMap((c) => c.items);

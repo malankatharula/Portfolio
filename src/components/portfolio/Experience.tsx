@@ -23,7 +23,7 @@ const ITEMS = [
   {
     role: "Design & Marketing Head",
     org: "IEEE CS Student Branch - USJ",
-    dates: "2025",
+    dates: "2024",
     bullets: [
       "Led design and marketing strategy for J'PURAXTREME 2.0 technical event.",
       "Coordinated branding, promotional materials, and community outreach.",

@@ -1,7 +1,7 @@
 import { SectionHeading } from "./SectionHeading";
 
 const INFO = [
-  { icon: "✉", label: "Email", value: "malankawckramasinghe@gmail.com" },
+  { icon: "✉", label: "Email", value: "malankawickramasinghe@gmail.com" },
   { icon: "⌖", label: "Location", value: "Colombo, Sri Lanka" },
   { icon: "◐", label: "Status", value: "Open to opportunities" },
 ];

@@ -3,7 +3,7 @@ import { Typewriter } from "./Typewriter";
 
 const BADGES = [
   { label: "IEEEXtreme 18.0   World Rank", value: "#605" },
-  { label: "Current GPA", value: "..." },
+  { label: "Current GPA", value: "3.66" },
   { label: "Certifications", value: "6+" },
 ];
 
@@ -26,13 +26,13 @@ export function Hero() {
           <span style={{ color: "var(--neon-magenta)" }}>{">"}</span>
           <span>role :=</span>
           <Typewriter
-            words={["CS Undergraduate", "Backend Developer", "Deep Learning Enthusiast", "Competitive Programmer", "Open Source Contributor"]}
+            words={["AI Agent Builder", "Full-Stack Developer", "UI/UX Designer", "Mobile App Developer", "Competitive Programmer"]}
           />
         </div>
 
         <p className="mt-6 max-w-2xl font-mono text-sm leading-relaxed md:text-base" style={{ color: "var(--text-dim)" }}>
-          Computer Science undergrad at FoC, USJ building AI agentic systems, deep learning models,
-          and Automated workflows along with full-stack development.
+          CS undergrad at USJ who likes owning the whole product - I sketch the screens in Figma, build
+          the web and mobile apps, and lately spend most of my time on AI agents and RAG systems.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
